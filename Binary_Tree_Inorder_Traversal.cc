@@ -44,3 +44,34 @@ public:
         return ans;
     }
 };
+
+
+//O(1) space algorithm
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode *root) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        vector<int> ret;
+        TreeNode *pre = NULL;
+        TreeNode *cur = root;
+        while (cur) {
+            if (!cur->left) {
+                ret.push_back(cur->val);
+                cur = cur->right;
+            } else {
+                pre = cur->left;
+                while (pre->right && pre->right != cur)  pre = pre->right;
+                if (pre->right == NULL) {
+                    pre->right = cur;
+                    cur = cur->left;
+                } else {
+                    pre->right = NULL;
+                    ret.push_back(cur->val);
+                    cur = cur->right;
+                }
+            }
+        }
+        return ret;
+    }
+};
