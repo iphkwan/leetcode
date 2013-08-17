@@ -36,3 +36,28 @@ public:
         return head;
     }
 };
+
+//Another method using second level pointer
+class Solution {
+public:
+    ListNode *partition(ListNode *head, int x) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        ListNode *ret = NULL;
+        ListNode **tail = &ret;
+        ListNode **pHead = &head;
+        ListNode *entry = NULL;
+        for (ListNode **pCur = &head; *pCur; ) {
+            entry = *pCur;
+            if (entry->val < x) {
+                *pCur = entry->next;
+                *tail = entry;
+                tail = &(entry->next);
+            } else {
+                pCur = &(entry->next);
+            }
+        }
+        *tail = *pHead;
+        return ret;
+    }
+};
