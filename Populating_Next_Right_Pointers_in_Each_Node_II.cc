@@ -36,3 +36,35 @@ public:
         connect(nxtLevel);
     }
 };
+
+
+
+//Add non-recursive method.
+class Solution {
+public:
+    void connect(TreeLinkNode *root) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        TreeLinkNode *pCur = root, *pBegin = NULL;
+        TreeLinkNode **pTail = &pBegin;
+        while (pCur != NULL) {
+            while (pCur != NULL) {
+                if (pCur->left) {
+                    if (!pBegin)    pBegin = pCur->left;
+                    else    *pTail = pCur->left;
+                    pTail = &((*pTail)->next);
+                }
+                if (pCur->right) {
+                    if (!pBegin)    pBegin = pCur->right;
+                    else    *pTail = pCur->right;
+                    pTail = &((*pTail)->next);
+                }
+                pCur = pCur->next;
+            }
+            pCur = pBegin;
+            pBegin = NULL;
+            pTail = &pBegin;
+        }
+        return;
+    }
+};
