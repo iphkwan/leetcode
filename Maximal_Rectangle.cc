@@ -38,3 +38,38 @@ public:
         return ans;
     }
 };
+
+
+//O(n^2) time solution
+class Solution {
+public:
+    int maximalRectangle(vector<vector<char> > &matrix) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        int ret = 0;
+        int row = matrix.size();
+        if (row == 0)   return ret;
+        int col = matrix[0].size();
+        vector<int> dp(col, 0);
+        stack<int> st;
+        int tmp;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                dp[j] = (matrix[i][j] == '1') ? (dp[j] + 1) : 0;
+                while (!st.empty() && dp[j] < dp[ st.top() ]) {
+                    tmp = st.top();
+                    st.pop();
+                    ret = max(ret, dp[tmp] * ((st.empty() ? j : (j - 1 - st.top()))));
+                }
+                st.push(j);
+            }
+            while (!st.empty()) {
+                tmp = st.top();
+                st.pop();
+                ret = max(ret, dp[tmp] * ((st.empty() ? col : (col - 1 - st.top()))));
+            }
+        }
+        return ret;
+    }
+};
+
