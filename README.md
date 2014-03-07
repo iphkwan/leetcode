@@ -3,4 +3,5 @@ leetcode
 
 No voice but big deal.
 
-> 150 / 150
+> 151 / 151
+> Last updated at Mar. 7th 2014.
