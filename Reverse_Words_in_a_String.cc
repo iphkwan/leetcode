@@ -1,4 +1,5 @@
 //O(1) space solution
+// First, normalize the string, then reverse substring and at last reverse the whole string.
 class Solution {
 public:
     void reverseWords(string &s) {
