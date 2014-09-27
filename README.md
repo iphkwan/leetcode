@@ -1,8 +1,8 @@
 leetcode
 ========
 
-No voice but big deal.
+Have fun!
 
-Last updated at Mar. 7th 2014.
+Last updated at Sep. 27th 2014.
 
-> 151 / 151
+> 152 / 152
