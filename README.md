@@ -3,6 +3,6 @@ leetcode
 
 Have fun!
 
-Last updated at Sep. 27th 2014.
+Last updated at Oct. 17th 2014.
 
-> 152 / 152
+> 153 / 153
